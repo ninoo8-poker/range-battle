@@ -1,30 +1,28 @@
-# Range Battle V2 — Solo
+# Range Battle — Streamlit
 
-Jeu d'entraînement aux ranges pour 6-max MTT.
+## Tester en local
 
-## Fonctionnement
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-Le joueur choisit :
-- profondeur : 50bb / 100bb ;
-- spot ;
-- action : OPEN / FOLD / RAISE.
+Puis ouvrir l'adresse affichée par Streamlit.
 
-Il peut sélectionner **plusieurs cases simultanément**, puis cliquer sur **Valider le range**.
+## Déployer avec Streamlit Community Cloud
 
-Le programme compare la sélection au range de référence et calcule :
-- nombre de bonnes cases ;
-- erreurs ;
-- score cumulé ;
-- précision.
+1. Mettre `app.py` et `requirements.txt` dans un repository GitHub.
+2. Aller sur https://share.streamlit.io/
+3. Se connecter avec GitHub.
+4. `Create app` → choisir le repository.
+5. Branch : `main`
+6. Main file path : `app.py`
+7. Deploy.
 
-## Ajouter les autres ranges
+L'application sera disponible sur une adresse `streamlit.app`.
 
-Les ranges sont stockés dans `script.js`, dans l'objet `DATA`.
-Le moteur est séparé des données : les captures 50bb/100bb des autres positions peuvent donc être ajoutées sans refaire l'interface.
+## Données
 
-Pour un spot OPEN, une case dans le masque vaut OPEN et une case hors masque vaut FOLD.
-Les spots où RAISE est une action possible pourront utiliser un modèle à 3 actions dans une prochaine étape.
-
-## GitHub Pages
-
-Déposer les 3 fichiers (`index.html`, `style.css`, `script.js`) dans un repository puis activer GitHub Pages sur `main` / `/root`.
+Les ranges sont actuellement dans `DATA` dans `app.py`.
+Les captures 50bb LJ/HJ/CO ont servi à créer une première base de test.
+Les autres positions et les ranges 100bb doivent être ajoutés à partir de tes captures.
