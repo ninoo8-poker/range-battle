@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Range Trainer — 6-max MTT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <div class="eyebrow">RANGE TRAINER</div>
+      <h1>Range Battle</h1>
+      <p id="spotLabel">6-max MTT · 50bb · LJ · Open</p>
+    </div>
+    <button id="newRound" class="secondary">Nouvelle manche</button>
+  </header>
+
+  <section class="controls">
+    <label>Profondeur
+      <select id="depth">
+        <option value="50">50bb</option>
+        <option value="100">100bb</option>
+      </select>
+    </label>
+    <label>Spot
+      <select id="spot"></select>
+    </label>
+    <label>Action testée
+      <select id="action">
+        <option value="OPEN">OPEN</option>
+        <option value="FOLD">FOLD</option>
+        <option value="RAISE">RAISE</option>
+      </select>
+    </label>
+  </section>
+
+  <section class="score">
+    <div><span>Score</span><strong id="score">0</strong></div>
+    <div><span>Bonnes</span><strong id="correct">0</strong></div>
+    <div><span>Erreurs</span><strong id="wrong">0</strong></div>
+    <div><span>Précision</span><strong id="accuracy">—</strong></div>
+  </section>
+
+  <section class="panel">
+    <div class="instructions">
+      <div>
+        <strong id="instruction">Sélectionne toutes les mains que tu OPEN.</strong>
+        <small>Tu peux sélectionner plusieurs cases. Clique une deuxième fois pour désélectionner.</small>
+      </div>
+      <button id="validate" class="primary">Valider le range</button>
+    </div>
+    <div id="board" class="board"></div>
+    <div class="legend">
+      <span><i class="orange"></i>Range Open</span>
+      <span><i class="grey"></i>Fold</span>
+      <span><i class="green"></i>Mix / fréquence</span>
+      <span><i class="blue"></i>Mix / fréquence</span>
+      <span class="sep"></span>
+      <span><i class="selected"></i>Ta sélection</span>
+    </div>
+  </section>
+
+  <section id="result" class="result hidden">
+    <h2>Résultat</h2>
+    <div id="resultText"></div>
+    <button id="nextRound" class="primary">Nouvelle manche</button>
+  </section>
+
+  <p class="note">Le mode est solo : tu construis ton range, puis l'application compare chaque case au range de référence.</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
